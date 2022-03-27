@@ -13,7 +13,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Creato il:</th>
-                <th scope="col">Actions</th>
+                <th scope="col" class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,10 @@
                 <td>{{ $p->title }}</td>
                 <td>{{ $p->slug }}</td>
                 <td>{{ $p->created_at }}</td>
-                <td class="d-flex justify-content-end align-items-center">Actions</td>
+                <td class="d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-primary mr-3">MODIFICA</button>
+                    <button type="button" class="btn btn-danger">ELIMINA</button>
+                </td>
             </tr>
             @empty
             <tr>
