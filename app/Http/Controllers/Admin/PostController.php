@@ -57,6 +57,10 @@ class PostController extends Controller
 
         $post->fill($data);
         $post->slug = Str::slug($post->title, '-');
+        if (array_key_exists('is_published', $data)) {
+            $post->is_published = 1;
+        }
+
         $post->save();
 
         return redirect()->route('admin.posts.index')->with('message', 'Post creato con successo')->with('type', 'success');
@@ -104,7 +108,12 @@ class PostController extends Controller
             'title.unique' => "Esiste già un post: $request->title."
         ]);
 
+
+
         $data = $request->all();
+
+        $data['is_published'] = array_key_exists('is_published', $data) ? 1 : 0;
+
         $data['slug'] = Str::slug($request->title, '-');
         $post->update($data);
 

@@ -53,6 +53,12 @@
             <div class="col 2">
                 <img src="{{ old('image', $post->image) ?? 'http://www.asdalcione.it/wp-content/uploads/2016/08/jk-placeholder-image-1.jpg'}}" alt="placeholder" width=50; class="img-fluid" id="preview">
             </div>
+            <div class="col-12 d-flex justify-content-end">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="is_published" id="is-published" {{ old('is_published') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is-published">Pubblicato</label>
+                </div>
+            </div>
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-success"><i class="fa-solid fa-check mr-2"></i>Conferma</button>
