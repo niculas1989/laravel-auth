@@ -22,7 +22,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
-                <th scope="col">Slug</th>
+                <th scope="col">Pubblicato</th>
                 <th scope="col">Creato il:</th>
                 <th scope="col">Modificato il:</th>
                 <th scope="col" class="text-center">Actions</th>
@@ -33,7 +33,7 @@
             <tr>
                 <th scope="row">{{ $p->id }}</th>
                 <td>{{ $p->title }}</td>
-                <td>{{ $p->slug }}</td>
+                <td>{{ $p->is_published ? 'Pubblicato' : 'Non pubblicato' }}</td>
                 <td>{{ $p->created_at }}</td>
                 <td>{{ $p->updated_at }}</td>
                 <td class="d-flex justify-content-center align-items-center">
