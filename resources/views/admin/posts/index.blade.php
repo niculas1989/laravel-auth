@@ -24,6 +24,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Creato il:</th>
+                <th scope="col">Modificato il:</th>
                 <th scope="col" class="text-center">Actions</th>
             </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <td>{{ $p->title }}</td>
                 <td>{{ $p->slug }}</td>
                 <td>{{ $p->created_at }}</td>
+                <td>{{ $p->updated_at }}</td>
                 <td class="d-flex justify-content-center align-items-center">
                     <button type="button" class="btn btn-primary mr-3"><i class="fa-solid fa-pencil"></i></button>
                     <a href="{{ route('admin.posts.show', $p->id) }}" class="btn btn-warning mr-3"><i class="fa-solid fa-eye"></i></a>
