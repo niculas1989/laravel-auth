@@ -55,8 +55,8 @@
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="is_published" id="is-published" {{ old('is_published') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="is-published">Pubblicato</label>
+                    <input type="checkbox" class="form-check-input" name="is_published" id="is-published" {{ old('is_published', $post->is_published) ? 'checked' : ''}} />
+                    <label class="form-check-label text-white" for="is-published">Pubblicato</label>
                 </div>
             </div>
         </div>
