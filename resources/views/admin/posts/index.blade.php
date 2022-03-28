@@ -5,11 +5,17 @@
     <header>
         <div class="d-flex justify-content-between align-items-center">
             <h1>I miei posts:</h1>
-            <button class="btn btn-success">
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-success">
                 <i class="fa-solid fa-plus"> Nuovo Post</i>
-            </button>
+            </a>
         </div>
+        <hr>
     </header>
+    @if(session('messages'))
+    <div class="alert alert-{{ session('type') ?? 'info' }}">
+        {{ session('message') }}
+    </div>
+    @endif
 
     <table class="table table-dark">
         <thead>
