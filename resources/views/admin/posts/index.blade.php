@@ -11,7 +11,7 @@
         </div>
         <hr>
     </header>
-    @if(session('messages'))
+    @if(session('message'))
     <div class="alert alert-{{ session('type') ?? 'info' }}">
         {{ session('message') }}
     </div>
