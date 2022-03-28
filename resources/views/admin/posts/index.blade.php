@@ -11,7 +11,7 @@
         </div>
     </header>
 
-    <table class="table">
+    <table class="table table-dark">
         <thead>
             <tr>
                 <th scope="col">#</th>

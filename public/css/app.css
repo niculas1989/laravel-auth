@@ -10019,3 +10019,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  background-color: black;
+}
+body h1 {
+  color: white;
+}
