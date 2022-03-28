@@ -132,4 +132,14 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('admin.posts.index')->with('message', "$post->title eliminato con successo.")->with('type', 'success');
     }
+
+    public function toggle(Post $post)
+    {
+        $post->is_published = !$post->is_published();
+        $published = $post->is_published ? 'pubblicato' : 'rimosso';
+
+        $post->save();
+
+        return redirect()->route('admin.posts.index')->with('message', "$post->title $published con successo.")->with('type', 'success');
+    }
 }
