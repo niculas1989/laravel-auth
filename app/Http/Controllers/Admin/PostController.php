@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'DESC')->get();
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
 
 
         return view('admin.posts.index', compact('posts'));
@@ -91,9 +91,24 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'string', Rule::unique('posts')->ignore(), 'min:5', 'max:50'],
+            'content' => 'required|string',
+            'image' => 'nullable|url'
+        ], [
+            'title.required' => 'Il titolo è obbligatorio.',
+            'title.min' => 'La lunghezza minima del titolo è di 5 caratteri.',
+            'title.max' => 'La lunghezza massima del titolo è di 50 caratteri.',
+            'title.unique' => "Esiste già un post: $request->title."
+        ]);
+
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title, '-');
+        $post->update($data);
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
