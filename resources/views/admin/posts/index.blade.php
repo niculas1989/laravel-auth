@@ -30,7 +30,7 @@
                 <td>{{ $p->created_at }}</td>
                 <td class="d-flex justify-content-center align-items-center">
                     <button type="button" class="btn btn-primary mr-3"><i class="fa-solid fa-pencil"></i></button>
-                    <button type="button" class="btn btn-warning mr-3"><i class="fa-solid fa-eye"></i></button>
+                    <a href="{{ route('admin.posts.show', $p->id) }}" class="btn btn-warning mr-3"><i class="fa-solid fa-eye"></i></a>
                     <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>
