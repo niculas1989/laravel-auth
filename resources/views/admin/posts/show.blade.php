@@ -14,6 +14,7 @@
             @csrf
             <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash mr-2"></i>ELIMINA</button>
         </form>
+        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary ml-3"><i class="fa-solid fa-pencil">MODIFICA</i></a>
     </div>
 </div>
 @endsection

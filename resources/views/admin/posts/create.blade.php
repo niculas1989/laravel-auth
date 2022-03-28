@@ -6,25 +6,49 @@
         <h1>Nuovo Post</h1>
     </header>
     <hr>
-    <form action="{{ route('admin.posts.store') }}" method="POST">
+    @if($errors->any())
+    <div class="alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action="{{ route('admin.posts.store') }}" method="POST" novalidate>
         @csrf
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
+                <div class="form-group @error('title') is-invalid @enderror">
                     <label for="title" class="text-white">Titolo Post</label>
                     <input type="text" class="form-control" id="title" name="title" required>
+                    @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="col-12">
-                <div class="form-group">
-                    <label for="content" class="text-white">Post</label>
+                <div class="form-group @error('title') is-invalid @enderror">
+                    <label for=" content" class="text-white">Post</label>
                     <textarea class="form-control" id="content" rows="5" name="content"></textarea>
                 </div>
+                @error('title')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="col-10">
-                <div class="form-group">
+                <div class="form-group @error('title') is-invalid @enderror">
                     <label for="image" class="text-white">Immagine Post</label>
                     <input type="url" class="form-control" id="image" placeholder="immagine" name="image">
+                    @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="col 2">

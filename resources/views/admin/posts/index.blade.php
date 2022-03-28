@@ -37,7 +37,7 @@
                 <td>{{ $p->created_at }}</td>
                 <td>{{ $p->updated_at }}</td>
                 <td class="d-flex justify-content-center align-items-center">
-                    <button type="button" class="btn btn-primary mr-3"><i class="fa-solid fa-pencil"></i></button>
+                    <a href="{{ route('admin.posts.edit', $p->id) }}" class="btn btn-primary mr-3"><i class="fa-solid fa-pencil"></i></a>
                     <a href="{{ route('admin.posts.show', $p->id) }}" class="btn btn-warning mr-3"><i class="fa-solid fa-eye"></i></a>
                     <form action="{{ route('admin.posts.destroy', $p->id) }}" method="post" class="delete-form">
                         @method('DELETE')
