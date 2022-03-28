@@ -135,7 +135,7 @@ class PostController extends Controller
 
     public function toggle(Post $post)
     {
-        $post->is_published = !$post->is_published();
+        $post->is_published = !$post->is_published;
         $published = $post->is_published ? 'pubblicato' : 'rimosso';
 
         $post->save();

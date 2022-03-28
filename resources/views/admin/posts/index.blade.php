@@ -35,7 +35,7 @@
                 <td>{{ $p->title }}</td>
                 <td>
                     {{ $p->is_published ? 'Pubblicato' : 'Non pubblicato' }}
-                    <form action="{{ route('admin.posts.toggle', $p->id) }}" method:"POST">
+                    <form action="{{ route('admin.posts.toggle', $p->id) }}" method="POST">
                         @method('PATCH')
                         @csrf
                         <button type="submit" class="btn btn-outline">
